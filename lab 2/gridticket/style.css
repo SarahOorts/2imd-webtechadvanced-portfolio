@@ -44,6 +44,8 @@ body{
 
 .QR {
     margin: auto;
+    margin-top: 1fr;
+    margin-bottom: 1fr;
 }
 
 .tick{
@@ -85,4 +87,83 @@ body{
     display: grid;
 }
 
+@media (max-width: 1000px){
+    *{
+        box-sizing: border-box;
+    }
+    
+    body{
+        margin: 0;
+        padding: 0;
+    }
 
+    .ticket{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 20% 60% 20%;
+        border: none;
+    }
+    
+    .header{
+        color: white;
+        text-transform: uppercase;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: center;
+        background-color: black;
+        display: grid;
+    }
+    
+    .header p{
+        font-weight: 100;
+        margin: 0;
+        margin-bottom: 20px;
+        margin-top: 5px;
+        font-size: 16px;
+    }
+    
+    #title{
+        font-size: 48px;
+        font-weight:700;
+        margin: 0;
+        margin-top: 15px;
+        order: 0;
+    }
+    
+    .QR {
+        margin: auto;
+    }
+
+    .tick{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        font-size: 16px;
+        font-weight: 700;
+    }
+    
+    .ticketadm{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: center;    
+    }
+    
+    .ticketinfo{
+        border: 1px solid black;
+    }
+    
+    .ticketprice{
+        text-transform: uppercase;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: center;
+        border: 1px solid black;
+    }
+    
+    .HiddenOnMobile{
+        display: none;
+    }  
+
+}
