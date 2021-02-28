@@ -1,2 +1,8 @@
-# 2imd-webtechadvanced-portfolio
-A repository for your personal portfolio, this will contain all your labs from now on!
+# Sarah's Portfolio
+
+## Week 1 - GIT
+https://github.com/SarahOorts/2imd-webtechadvanced-portfolio/tree/main/lab%201%20-%20git
+
+## Week2 - CSS flexbox + Grid
+https://github.com/SarahOorts/2imd-webtechadvanced-portfolio/tree/main/lab%202
+
