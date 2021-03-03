@@ -1,0 +1,1 @@
+let getal = 5;
