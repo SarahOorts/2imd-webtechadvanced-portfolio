@@ -21,7 +21,6 @@ var Note = /*#__PURE__*/function () {
       var newNote = document.createElement("li");
       newNote.addEventListener("click", this.remove.bind(newNote)); // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote)); 
 
-      this.innerHTML = title;
       return newNote;
     }
   }, {
@@ -29,7 +28,9 @@ var Note = /*#__PURE__*/function () {
     value: function add() {
       // HINT🤩
       // this function should append the note to the screen somehow
-      console.log("HYELLOW"); // document.querySelector("#taskList").appendChild(newNote);
+      console.log("HYELLOW");
+      var stickynote = document.querySelector("#taskList").appendChild(this.element);
+      stickynote.innerHTML = this.title;
     }
   }, {
     key: "saveToStorage",

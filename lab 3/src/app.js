@@ -9,7 +9,6 @@ class Note { // laad de storage terug op en zet het op het scherm
       let newNote = document.createElement("li");
       newNote.addEventListener("click", this.remove.bind(newNote));
       // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote)); 
-      this.innerHTML = title;
       return newNote;
     }
   
@@ -17,8 +16,8 @@ class Note { // laad de storage terug op en zet het op het scherm
       // HINT🤩
       // this function should append the note to the screen somehow
       console.log("HYELLOW");
-      // document.querySelector("#taskList").appendChild(newNote);
-      
+      let stickynote = document.querySelector("#taskList").appendChild(this.element);
+      stickynote.innerHTML = this.title;      
     }
   
     saveToStorage() {
