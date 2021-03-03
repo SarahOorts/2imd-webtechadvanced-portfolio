@@ -7,7 +7,7 @@ class Note { // laad de storage terug op en zet het op het scherm
   
     createElement(title) {
       let newNote = document.createElement("li");
-  
+      newNote.addEventListener("click", this.remove.bind(newNote));
       // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
   
       return newNote;
@@ -61,7 +61,8 @@ class Note { // laad de storage terug op en zet het op het scherm
 
       if(e.key === "Enter"){
         e.preventDefault();
-        // note.add(this.txtTodo.value);
+        let textvalue = this.txtTodo.value;
+        note.add(textvalue);
         // note.saveToStorage();
         this.reset();
         console.log("hi" , this.txtTodo.value);

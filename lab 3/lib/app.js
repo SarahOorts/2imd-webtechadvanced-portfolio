@@ -18,7 +18,8 @@ var Note = /*#__PURE__*/function () {
   _createClass(Note, [{
     key: "createElement",
     value: function createElement(title) {
-      var newNote = document.createElement("li"); // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
+      var newNote = document.createElement("li");
+      newNote.addEventListener("click", this.remove.bind(newNote)); // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
 
       return newNote;
     }
@@ -74,8 +75,9 @@ var App = /*#__PURE__*/function () {
       // HINT🤩
       // clear the text field with .reset in this class
       if (e.key === "Enter") {
-        e.preventDefault(); // note.add(this.txtTodo.value);
-        // note.saveToStorage();
+        e.preventDefault();
+        var textvalue = this.txtTodo.value;
+        note.add(textvalue); // note.saveToStorage();
 
         this.reset();
         console.log("hi", this.txtTodo.value);
