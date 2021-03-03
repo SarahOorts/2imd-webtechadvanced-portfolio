@@ -83,7 +83,10 @@ var App = /*#__PURE__*/function () {
     }
   }, {
     key: "reset",
-    value: function reset() {// this function should reset the form / clear the text field
+    value: function reset() {
+      // this function should reset the form / clear the text field
+      this.txtTodo.value = "";
+      console.log(this.txtTodo.value, "ok?");
     }
   }]);
 

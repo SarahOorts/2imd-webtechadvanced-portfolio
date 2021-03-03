@@ -70,7 +70,8 @@ class Note { // laad de storage terug op en zet het op het scherm
 
     reset() {
       // this function should reset the form / clear the text field
-      
+      this.txtTodo.value = "";
+      console.log(this.txtTodo.value, "ok?");
     }
     
   }
