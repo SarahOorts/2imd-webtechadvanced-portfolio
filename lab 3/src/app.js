@@ -9,6 +9,7 @@ class Note { // laad de storage terug op en zet het op het scherm
       let newNote = document.createElement("li");
       newNote.addEventListener("click", this.remove.bind(newNote));
       // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote)); 
+      this.innerHTML = title;
       return newNote;
     }
   
@@ -16,8 +17,8 @@ class Note { // laad de storage terug op en zet het op het scherm
       // HINT🤩
       // this function should append the note to the screen somehow
       console.log("HYELLOW");
-      document.querySelector("#taskList").appendChild(newNote);
-      this.element.innerHTML = textinput;
+      // document.querySelector("#taskList").appendChild(newNote);
+      
     }
   
     saveToStorage() {
@@ -63,8 +64,8 @@ class Note { // laad de storage terug op en zet het op het scherm
       if(e.key === "Enter"){
         e.preventDefault();
         let textinput = this.txtTodo.value;
-        let newSticky = new Note();
-        newSticky.add(textinput);
+        let newSticky = new Note(textinput);
+        newSticky.add();
         newSticky.saveToStorage();
         this.reset();
         console.log("hi" , this.txtTodo.value);
