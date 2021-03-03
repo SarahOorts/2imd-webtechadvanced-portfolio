@@ -1,6 +1,7 @@
 class Note { // laad de storage terug op en zet het op het scherm
     constructor(title) {
       this.title = title;
+      this.element = this.createElement(title);
       // HINT🤩 this.element = this.createElement(title);
     }
   
