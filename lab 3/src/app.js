@@ -33,8 +33,12 @@ class Note { // laad de storage terug op en zet het op het scherm
   }
   
   class App { // voegt nieuwe notes toe
-    constructor() {
+    constructor(txtTodo) {
       console.log("👊🏼 The Constructor!");
+      this.txtTodo = txtTodo;
+
+      this.txtTodo.addEventListener("keypress",this.createNote.bind(this));
+      this.loadNotesFromStorage();
       // HINT🤩
       // pressing the enter key in the text field triggers the createNote function
       // this.txtTodo = ???
