@@ -50,7 +50,10 @@ var App = /*#__PURE__*/function () {
   function App() {
     _classCallCheck(this, App);
 
-    console.log("👊🏼 The Constructor!"); // HINT🤩
+    console.log("👊🏼 The Constructor!");
+    this.txtTodo = document.querySelector("#taskInput");
+    this.txtTodo.addEventListener("keypress", this.createNote.bind(this));
+    this.loadNotesFromStorage(); // HINT🤩
     // pressing the enter key in the text field triggers the createNote function
     // this.txtTodo = ???
     // this.txtTodo.addEventListener("keypress", this.createNote.bind(this));
@@ -66,12 +69,17 @@ var App = /*#__PURE__*/function () {
     }
   }, {
     key: "createNote",
-    value: function createNote(e) {// this function should create a new note by using the Note() class
+    value: function createNote(e) {
+      // this function should create a new note by using the Note() class
       // HINT🤩
-      // note.add();
-      // note.saveToStorage();
       // clear the text field with .reset in this class
-      // if (e.key === "Enter")
+      if (e.key === "Enter") {
+        e.preventDefault(); // note.add(this.txtTodo.value);
+        // note.saveToStorage();
+
+        this.reset();
+        console.log("hi", this.txtTodo.value);
+      }
     }
   }, {
     key: "reset",

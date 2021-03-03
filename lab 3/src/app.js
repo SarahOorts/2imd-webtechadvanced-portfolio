@@ -33,9 +33,10 @@ class Note { // laad de storage terug op en zet het op het scherm
   }
   
   class App { // voegt nieuwe notes toe
-    constructor(txtTodo) {
+    constructor() {
       console.log("👊🏼 The Constructor!");
-      this.txtTodo = txtTodo;
+      this.txtTodo = 
+      document.querySelector("#taskInput");
 
       this.txtTodo.addEventListener("keypress",this.createNote.bind(this));
       this.loadNotesFromStorage();
@@ -53,18 +54,25 @@ class Note { // laad de storage terug op en zet het op het scherm
       // load all notes from storage here and add them to the screen
     }
   
-    createNote(e) {
+    createNote(e){
       // this function should create a new note by using the Note() class
       // HINT🤩
-      // note.add();
-      // note.saveToStorage();
       // clear the text field with .reset in this class
-      // if (e.key === "Enter")
+
+      if(e.key === "Enter"){
+        e.preventDefault();
+        // note.add(this.txtTodo.value);
+        // note.saveToStorage();
+        this.reset();
+        console.log("hi" , this.txtTodo.value);
+      }
     }
-  
+
     reset() {
       // this function should reset the form / clear the text field
+      
     }
+    
   }
   
   let app = new App(); // uitvoering classes
