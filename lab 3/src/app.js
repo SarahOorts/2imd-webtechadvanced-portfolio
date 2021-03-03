@@ -16,6 +16,7 @@ class Note { // laad de storage terug op en zet het op het scherm
     add() {
       // HINT🤩
       // this function should append the note to the screen somehow
+      console.log("HYELLOW");
     }
   
     saveToStorage() {
@@ -35,8 +36,7 @@ class Note { // laad de storage terug op en zet het op het scherm
   class App { // voegt nieuwe notes toe
     constructor() {
       console.log("👊🏼 The Constructor!");
-      this.txtTodo = 
-      document.querySelector("#taskInput");
+      this.txtTodo = document.querySelector("#taskInput");
 
       this.txtTodo.addEventListener("keypress",this.createNote.bind(this));
       this.loadNotesFromStorage();
@@ -61,9 +61,10 @@ class Note { // laad de storage terug op en zet het op het scherm
 
       if(e.key === "Enter"){
         e.preventDefault();
-        let textvalue = this.txtTodo.value;
-        note.add(textvalue);
-        // note.saveToStorage();
+        let textinput = this.txtTodo.value;
+        let newSticky = new Note();
+        newSticky.add(textinput);
+        newSticky.saveToStorage();
         this.reset();
         console.log("hi" , this.txtTodo.value);
       }

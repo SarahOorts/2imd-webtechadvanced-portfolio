@@ -25,8 +25,10 @@ var Note = /*#__PURE__*/function () {
     }
   }, {
     key: "add",
-    value: function add() {// HINT🤩
+    value: function add() {
+      // HINT🤩
       // this function should append the note to the screen somehow
+      console.log("HYELLOW");
     }
   }, {
     key: "saveToStorage",
@@ -76,9 +78,10 @@ var App = /*#__PURE__*/function () {
       // clear the text field with .reset in this class
       if (e.key === "Enter") {
         e.preventDefault();
-        var textvalue = this.txtTodo.value;
-        note.add(textvalue); // note.saveToStorage();
-
+        var textinput = this.txtTodo.value;
+        var newSticky = new Note();
+        newSticky.add(textinput);
+        newSticky.saveToStorage();
         this.reset();
         console.log("hi", this.txtTodo.value);
       }
