@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Open + Sans:400, 300, 600");
+
 * {
   padding: 0;
   margin: 0;
 }
 body {
   background-color: #2a2a2a;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 #container {
   background-color: #111216;
@@ -23,7 +23,7 @@ body {
 
 #taskInput {
   font-size: 14px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Roboto', sans-serif;
   height: 36px;
   width: 311px;
   border-radius: 100px;
