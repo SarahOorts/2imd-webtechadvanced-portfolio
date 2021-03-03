@@ -24,6 +24,8 @@ class Note { // laad de storage terug op en zet het op het scherm
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
+      localStorage.setItem(0, this.title);
+      console.log("🤩");
     }
   
     remove() {
