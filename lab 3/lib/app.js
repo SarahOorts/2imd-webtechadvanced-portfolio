@@ -19,7 +19,7 @@ var Note = /*#__PURE__*/function () {
     key: "createElement",
     value: function createElement(title) {
       var newNote = document.createElement("li");
-      newNote.addEventListener("click", this.remove.bind(newNote)); // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
+      newNote.addEventListener("click", this.remove.bind(newNote)); // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote)); 
 
       return newNote;
     }
@@ -29,6 +29,8 @@ var Note = /*#__PURE__*/function () {
       // HINT🤩
       // this function should append the note to the screen somehow
       console.log("HYELLOW");
+      document.querySelector("#taskList").appendChild(newNote);
+      this.element.innerHTML = textinput;
     }
   }, {
     key: "saveToStorage",
@@ -78,9 +80,9 @@ var App = /*#__PURE__*/function () {
       // clear the text field with .reset in this class
       if (e.key === "Enter") {
         e.preventDefault();
-        var textinput = this.txtTodo.value;
+        var _textinput = this.txtTodo.value;
         var newSticky = new Note();
-        newSticky.add(textinput);
+        newSticky.add(_textinput);
         newSticky.saveToStorage();
         this.reset();
         console.log("hi", this.txtTodo.value);
