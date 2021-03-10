@@ -36,14 +36,6 @@ class Note { // laad de storage terug op en zet het op het scherm
         noteArray.push(this.title);
         localStorage.setItem("stickyArray", JSON.stringify(noteArray)); // noteArray = object uit local storage + toevoeging push
       }
-      
-
-      // let ticket = {
-      //   note : this.title,
-      // }
-      // let id  = i;
-
-      // localStorage.setItem(id, ticket);
       console.log("🤩");
     }
   

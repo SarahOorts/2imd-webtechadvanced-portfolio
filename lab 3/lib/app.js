@@ -61,12 +61,7 @@ var Note = /*#__PURE__*/function () {
         var noteArray = JSON.parse(localStorage.getItem("stickyArray"));
         noteArray.push(this.title);
         localStorage.setItem("stickyArray", JSON.stringify(noteArray)); // noteArray = object uit local storage + toevoeging push
-      } // let ticket = {
-      //   note : this.title,
-      // }
-      // let id  = i;
-      // localStorage.setItem(id, ticket);
-
+      }
 
       console.log("🤩");
     }
