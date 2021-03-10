@@ -19,9 +19,10 @@ var Note = /*#__PURE__*/function () {
     key: "createElement",
     value: function createElement(title) {
       var newNote = document.createElement("li");
-      newNote.addEventListener("click", this.remove.bind(newNote)); // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote)); 
+      newNote.addEventListener("click", this.remove.bind(newNote)); //bind verwijst let newNote
+      // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote)); 
 
-      return newNote;
+      return newNote; //let newNote
     }
   }, {
     key: "add",
@@ -29,7 +30,8 @@ var Note = /*#__PURE__*/function () {
       // HINT🤩
       // this function should append the note to the screen somehow
       console.log("HYELLOW");
-      var stickynote = document.querySelector("#taskList").appendChild(this.element);
+      var stickynote = document.querySelector("#taskList").appendChild(this.element); // let newNote
+
       stickynote.innerHTML = this.title;
     }
   }, {
@@ -38,15 +40,37 @@ var Note = /*#__PURE__*/function () {
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
-      localStorage.setItem(0, this.title);
+      localStorage.getItem("stickyArray");
+      console.log(localStorage.getItem("stickyArray"));
+
+      if (localStorage.getItem("stickyArray") === null) {
+        localStorage.setItem("stickyArray", JSON.stringify([this.title]));
+      } else {
+        var noteArray = JSON.parse(localStorage.getItem("stickyArray"));
+        noteArray.push(this.title);
+        localStorage.setItem("stickyArray", JSON.stringify(noteArray)); // noteArray = object uit local storage + toevoeging push
+      } // let ticket = {
+      //   note : this.title,
+      // }
+      // let id  = i;
+      // localStorage.setItem(id, ticket);
+
+
       console.log("🤩");
     }
   }, {
     key: "remove",
-    value: function remove() {// HINT🤩 the meaning of 'this' was set by bind() in the createElement function
+    value: function remove(e) {
+      // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
       // in this function, 'this' will refer to the current note element
       // .removeChild(this)
       // remove the item from screen and from localstorage
+      console.log(e + "yess"); // for (let i = 0; i < notes.length; i++){
+      //   notes[i].
+      // }
+      //e.target.removeChild(this);
+
+      document.querySelector("#taskList").removeChild(this);
     }
   }]);
 
@@ -60,7 +84,8 @@ var App = /*#__PURE__*/function () {
 
     console.log("👊🏼 The Constructor!");
     this.txtTodo = document.querySelector("#taskInput");
-    this.txtTodo.addEventListener("keypress", this.createNote.bind(this));
+    this.txtTodo.addEventListener("keypress", this.createNote.bind(this)); //bind() houdt this gekoppeld aan de constructor (let app vanonder)
+
     this.loadNotesFromStorage(); // HINT🤩
     // pressing the enter key in the text field triggers the createNote function
     // this.txtTodo = ???
