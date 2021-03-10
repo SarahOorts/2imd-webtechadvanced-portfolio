@@ -53,14 +53,13 @@ class Note { // laad de storage terug op en zet het op het scherm
       // .removeChild(this)
       // remove the item from screen and from localstorage
 
-        console.log(e + "yess");
-        // for (let i = 0; i < notes.length; i++){
-        //   notes[i].
-        // }
-        //e.target.removeChild(this);
-
-        document.querySelector("#taskList").removeChild(this);
+      console.log(e + " yess");
+      document.querySelector("#taskList").removeChild(this);
       
+      let list = document.querySelector("#taskList");
+      let listindex = [...list.childNodes]; // laad 1 vr 1 li in een array
+      listindex.indexOf(this); // geeft plaatst van li weer in array
+      console.log( listindex.indexOf(this) + " huh?");    
     }
   }
   
