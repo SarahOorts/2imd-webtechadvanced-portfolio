@@ -113,8 +113,18 @@ var App = /*#__PURE__*/function () {
 
   _createClass(App, [{
     key: "loadNotesFromStorage",
-    value: function loadNotesFromStorage() {// HINT🤩
+    value: function loadNotesFromStorage() {
+      // HINT🤩
       // load all notes from storage here and add them to the screen
+      if (localStorage.getItem("stickyArray") !== null) {
+        var storageInput = JSON.parse(localStorage.getItem("stickyArray"));
+
+        for (var i = 0; i < storageInput.length; i++) {
+          var stickyStorage = new Note(storageInput[i]); // storageInput[i] geeft title/inhoud
+
+          stickyStorage.add();
+        }
+      }
     }
   }, {
     key: "createNote",

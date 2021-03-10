@@ -82,6 +82,14 @@ class Note { // laad de storage terug op en zet het op het scherm
     loadNotesFromStorage() {
       // HINT🤩
       // load all notes from storage here and add them to the screen
+      if(localStorage.getItem("stickyArray") !== null){
+        let storageInput = JSON.parse(localStorage.getItem("stickyArray"));
+        for(let i = 0; i < storageInput.length; i++){
+          let stickyStorage = new Note(storageInput[i]); // storageInput[i] geeft title/inhoud
+          stickyStorage.add();
+        }        
+      }
+
     }
   
     createNote(e){
