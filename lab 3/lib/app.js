@@ -72,21 +72,21 @@ var Note = /*#__PURE__*/function () {
     }
   }, {
     key: "remove",
-    value: function remove(e) {
+    value: function remove() {
       // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
       // in this function, 'this' will refer to the current note element
       // .removeChild(this)
       // remove the item from screen and from localstorage
-      console.log(e + " yess");
-      document.querySelector("#taskList").removeChild(this);
       var list = document.querySelector("#taskList");
 
-      var listindex = _toConsumableArray(list.childNodes); // laad 1 vr 1 li in een array
+      var listindex = _toConsumableArray(list.childNodes).indexOf(this); // childNodes laad 1 vr 1 li in een array // indexOf geeft plaatst van li weer in array
 
 
-      listindex.indexOf(this); // geeft plaatst van li weer in array
-
-      console.log(listindex.indexOf(this) + " huh?");
+      console.log(listindex + " huh?");
+      document.querySelector("#taskList").removeChild(this);
+      var noteArray = JSON.parse(localStorage.getItem("stickyArray"));
+      noteArray.splice(listindex, 1);
+      localStorage.setItem("stickyArray", JSON.stringify(noteArray)); // noteArray = object uit local storage + zonder verwijderde list adhv splice
     }
   }]);
 
