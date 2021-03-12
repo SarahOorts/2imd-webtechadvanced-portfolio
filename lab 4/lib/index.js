@@ -46,22 +46,50 @@ var Recipe = /*#__PURE__*/function () {
         console.log(temp);
 
         _this2.ad(temp);
+
+        _this2.food(temp);
+      });
+    }
+  }, {
+    key: "food",
+    value: function food(temp) {
+      var dish;
+
+      if (temp < 10) {
+        dish = "Irish stew";
+      } else if (temp > 10 && temp < 20) {
+        dish = "Arrabiata";
+      } else if (temp > 20 && temp < 30) {
+        dish = "Chicken Quinoa Greek Salad";
+      } else if (temp > 30) {
+        dish = "New York cheesecake";
+      }
+
+      var link = "https://www.themealdb.com/api/json/v1/1/search.php?s=".concat(dish);
+      console.log(link);
+      fetch(link).then(function (response) {
+        console.log("hello");
+        return response.json();
+      }).then(function (json) {
+        console.log(":D");
+        console.log(json);
       });
     }
   }, {
     key: "ad",
     value: function ad(temp) {
-      document.querySelector(".recipe").innerHTML = "It is ".concat(temp, " degrees today");
-
-      if (temp < 10) {
-        document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
-      } else if (temp > 10 && temp < 20) {
-        document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
-      } else if (temp > 20 && temp < 30) {
-        document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
-      } else {
-        document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
-      }
+      document.querySelector(".recipe").innerHTML = "It is ".concat(temp, " degrees today"); // if(temp<10){
+      //     document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
+      // }
+      // else if (temp >10 && temp < 20){
+      //     document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
+      // }
+      // else if(temp> 20 && temp < 30){
+      //     document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
+      // }
+      // else if(temp > 30){
+      //     document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
+      // }
     }
   }]);
 

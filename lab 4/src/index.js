@@ -30,24 +30,54 @@ class Recipe {
             console.log(temp);
 
             this.ad(temp);
+            this.food(temp);
         });
     }
+
+    food(temp){
+        let dish;
+        if(temp < 10){
+            dish = "Irish stew";
+        }
+        else if(temp >10 && temp < 20){
+            dish = "Arrabiata";
+        }
+        else if (temp> 20 && temp < 30){
+            dish = "Chicken Quinoa Greek Salad";
+        }
+        else if(temp > 30){
+            dish = "New York cheesecake";
+        } 
+
+        let link = `https://www.themealdb.com/api/json/v1/1/search.php?s=${dish}`;
+        console.log(link);
+        fetch(link)
+        .then((response) => {
+            console.log("hello");
+            return response.json();           
+        })
+        .then((json) => {
+            console.log(":D");
+            console.log(json);
+        });
+    }
+
 
     ad(temp){
         document.querySelector(".recipe").innerHTML = `It is ${temp} degrees today`;
 
-        if(temp<10){
-            document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
-        }
-        else if (temp >10 && temp < 20){
-            document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
-        }
-        else if(temp> 20 && temp < 30){
-            document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
-        }
-        else{
-            document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
-        }
+        // if(temp<10){
+        //     document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
+        // }
+        // else if (temp >10 && temp < 20){
+        //     document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
+        // }
+        // else if(temp> 20 && temp < 30){
+        //     document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
+        // }
+        // else if(temp > 30){
+        //     document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
+        // }
     }
     }
     
