@@ -59,25 +59,23 @@ class Recipe {
         .then((json) => {
             console.log(":D");
             console.log(json);
+            let name = json.meals[0];
+            console.log(name);
+            let title = name.strMeal;
+            console.log(title);
+            let src = name.strMealThumb;
+            console.log(src);
+
+            this.ad(temp, title, src);
         });
+        
     }
 
 
-    ad(temp){
+    ad(temp, title, src){
         document.querySelector(".recipe").innerHTML = `It is ${temp} degrees today`;
-
-        // if(temp<10){
-        //     document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
-        // }
-        // else if (temp >10 && temp < 20){
-        //     document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
-        // }
-        // else if(temp> 20 && temp < 30){
-        //     document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
-        // }
-        // else if(temp > 30){
-        //     document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
-        // }
+        document.querySelector(".title").innerHTML = `Let's make some ${title}`;
+        document.querySelector(".ad").style.backgroundImage = `url(${src})`;
     }
     }
     

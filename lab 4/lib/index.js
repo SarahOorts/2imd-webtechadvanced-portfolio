@@ -53,6 +53,8 @@ var Recipe = /*#__PURE__*/function () {
   }, {
     key: "food",
     value: function food(temp) {
+      var _this3 = this;
+
       var dish;
 
       if (temp < 10) {
@@ -73,23 +75,22 @@ var Recipe = /*#__PURE__*/function () {
       }).then(function (json) {
         console.log(":D");
         console.log(json);
+        var name = json.meals[0];
+        console.log(name);
+        var title = name.strMeal;
+        console.log(title);
+        var src = name.strMealThumb;
+        console.log(src);
+
+        _this3.ad(temp, title, src);
       });
     }
   }, {
     key: "ad",
-    value: function ad(temp) {
-      document.querySelector(".recipe").innerHTML = "It is ".concat(temp, " degrees today"); // if(temp<10){
-      //     document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
-      // }
-      // else if (temp >10 && temp < 20){
-      //     document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
-      // }
-      // else if(temp> 20 && temp < 30){
-      //     document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
-      // }
-      // else if(temp > 30){
-      //     document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
-      // }
+    value: function ad(temp, title, src) {
+      document.querySelector(".recipe").innerHTML = "It is ".concat(temp, " degrees today");
+      document.querySelector(".title").innerHTML = "Let's make some ".concat(title);
+      document.querySelector(".ad").style.backgroundImage = "url(".concat(src, ")");
     }
   }]);
 
