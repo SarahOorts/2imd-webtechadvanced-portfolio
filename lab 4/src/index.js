@@ -28,7 +28,26 @@ class Recipe {
             console.log(celsius);
             let temp = celsius.max;
             console.log(temp);
+
+            this.ad(temp);
         });
+    }
+
+    ad(temp){
+        document.querySelector(".recipe").innerHTML = `It is ${temp} degrees today`;
+
+        if(temp<10){
+            document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
+        }
+        else if (temp >10 && temp < 20){
+            document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
+        }
+        else if(temp> 20 && temp < 30){
+            document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
+        }
+        else{
+            document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
+        }
     }
     }
     

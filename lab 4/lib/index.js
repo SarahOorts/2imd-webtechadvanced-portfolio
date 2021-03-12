@@ -28,6 +28,8 @@ var Recipe = /*#__PURE__*/function () {
   }, {
     key: "getWeather",
     value: function getWeather(lat, _long2) {
+      var _this2 = this;
+
       var url = "http://www.7timer.info/bin/api.pl?lon=".concat(_long2, "&lat=").concat(lat, "&product=civillight&output=json");
       console.log(url);
       console.log("hello");
@@ -41,13 +43,25 @@ var Recipe = /*#__PURE__*/function () {
         var celsius = js.temp2m;
         console.log(celsius);
         var temp = celsius.max;
-        console.log(temp); // let temperature = json.dataseries.splice(0, 1);
-        // console.log(temperature);
-        // let temp = JSON.stringify(temperature);
-        // console.log(temp);
-        // let t = temp.splice(2,1);
-        // console.log(t);
+        console.log(temp);
+
+        _this2.ad(temp);
       });
+    }
+  }, {
+    key: "ad",
+    value: function ad(temp) {
+      document.querySelector(".recipe").innerHTML = "It is ".concat(temp, " degrees today");
+
+      if (temp < 10) {
+        document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
+      } else if (temp > 10 && temp < 20) {
+        document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
+      } else if (temp > 20 && temp < 30) {
+        document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
+      } else {
+        document.querySelector(".ad").getElementsByClassName.backgroundImage = url();
+      }
     }
   }]);
 
