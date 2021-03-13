@@ -81,16 +81,63 @@ var Recipe = /*#__PURE__*/function () {
         console.log(title);
         var src = name.strMealThumb;
         console.log(src);
+        var recipelink = name.strYoutube;
+        console.log(recipelink);
+        var storage = {
+          "temperature": temp,
+          "title": title,
+          "photo": src,
+          "recipelink": recipelink,
+          "timestamp": Date.now() + 6100
+        };
+        console.log(storage);
 
-        _this3.ad(temp, title, src);
+        _this3.toStorage(storage, temp, title, src, recipelink);
+
+        console.log(JSON.stringify(storage) + " hello?");
       });
     }
   }, {
+    key: "toStorage",
+    value: function toStorage(storage, temp, title, src, recipelink) {
+      localStorage.getItem("dinner");
+      console.log(localStorage.getItem("dinner"));
+
+      if (localStorage.getItem("dinner") === null) {
+        localStorage.setItem("dinner", JSON.stringify(storage));
+      } else {
+        var d = Date.now();
+        console.log(d + " d");
+        var rn = localStorage.getItem("dinner");
+        var rnvs = JSON.parse(rn);
+        console.log(rnvs);
+        var sp = rnvs.timestamp;
+        console.log(sp);
+        var t = rnvs.temperature;
+        console.log(t);
+
+        if (d - sp > 6000) {
+          localStorage.setItem("dinner", JSON.stringify(storage));
+        } else {
+          temp = rnvs.temperature;
+          title = rnvs.title;
+          src = rnvs.photo;
+          recipelink = rnvs.recipelink; // let storearr = JSON.parse(localStorage.getItem("dinner"));
+          // storearr.push(storage);
+          // localStorage.setItem("dinner", JSON.stringify(storage));
+        }
+      }
+
+      console.log("🤩");
+      this.ad(temp, title, src, recipelink);
+    }
+  }, {
     key: "ad",
-    value: function ad(temp, title, src) {
+    value: function ad(temp, title, src, recipelink) {
       document.querySelector(".recipe").innerHTML = "It is ".concat(temp, " degrees today");
       document.querySelector(".title").innerHTML = "Let's make some ".concat(title);
       document.querySelector(".ad").style.backgroundImage = "url(".concat(src, ")");
+      document.querySelector(".recipelink").setAttribute("href", "".concat(recipelink));
     }
   }]);
 

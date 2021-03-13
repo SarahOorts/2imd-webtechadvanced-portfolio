@@ -65,18 +65,67 @@ class Recipe {
             console.log(title);
             let src = name.strMealThumb;
             console.log(src);
+            let recipelink = name.strYoutube;
+            console.log(recipelink);
 
-            this.ad(temp, title, src);
+            let storage = {
+                "temperature": temp,
+                "title": title,
+                "photo": src,
+                "recipelink": recipelink,
+                "timestamp": Date.now() + 6100
+            };
+    
+            console.log(storage);
+    
+            this.toStorage(storage, temp, title, src, recipelink); 
+            console.log(JSON.stringify(storage) + " hello?");
         });
         
     }
 
+    toStorage(storage, temp, title, src, recipelink){
+        localStorage.getItem("dinner");
+        console.log(localStorage.getItem("dinner"));
 
-    ad(temp, title, src){
+        if(localStorage.getItem("dinner") === null){ 
+            localStorage.setItem("dinner", JSON.stringify(storage));
+          }
+        else{
+        let d = Date.now();
+        console.log(d + " d");
+
+        let rn = localStorage.getItem("dinner");
+        let rnvs = JSON.parse(rn);
+        console.log(rnvs);
+        let sp = rnvs.timestamp;
+        console.log(sp);
+        let t = rnvs.temperature;
+        console.log(t);
+
+        if(d - sp > 6000){ 
+            localStorage.setItem("dinner", JSON.stringify(storage));
+          }
+        else{
+            temp = rnvs.temperature;
+            title = rnvs.title;
+            src = rnvs.photo;
+            recipelink = rnvs.recipelink;
+            // let storearr = JSON.parse(localStorage.getItem("dinner"));
+            // storearr.push(storage);
+            // localStorage.setItem("dinner", JSON.stringify(storage));
+          }
+        }
+          console.log("🤩"); 
+          this.ad(temp, title, src, recipelink);
+    }
+
+    ad(temp, title, src, recipelink){
         document.querySelector(".recipe").innerHTML = `It is ${temp} degrees today`;
         document.querySelector(".title").innerHTML = `Let's make some ${title}`;
         document.querySelector(".ad").style.backgroundImage = `url(${src})`;
-    }
+        document.querySelector(".recipelink").setAttribute("href", `${recipelink}`);    
+    }   
     }
     
     let recipe = new Recipe();
