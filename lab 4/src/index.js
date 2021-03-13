@@ -73,7 +73,7 @@ class Recipe {
                 "title": title,
                 "photo": src,
                 "recipelink": recipelink,
-                "timestamp": Date.now() + 6100
+                "timestamp": Date.now()
             };
     
             console.log(storage);
