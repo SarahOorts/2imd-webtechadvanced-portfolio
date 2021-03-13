@@ -56,6 +56,7 @@ var Recipe = /*#__PURE__*/function () {
       var _this3 = this;
 
       var dish;
+      temp = 25;
 
       if (temp < 10) {
         dish = "Irish stew";
