@@ -14,13 +14,13 @@ class Recipe {
     getWeather(lat, long) {
         let url = `http://www.7timer.info/bin/api.pl?lon=${long}&lat=${lat}&product=civillight&output=json`;
         console.log(url);
-        console.log("hello");
+        console.log("ok 1");
         fetch(url)
         .then((response) => {
             return response.json();
         })
         .then((json) => {
-            console.log(":D");
+            console.log("ok 2");
             console.log(json);
             let js = json.dataseries[0];
             console.log(js);
@@ -29,7 +29,6 @@ class Recipe {
             let temp = celsius.max;
             console.log(temp);
 
-            this.ad(temp);
             this.food(temp);
         });
     }
@@ -53,11 +52,11 @@ class Recipe {
         console.log(link);
         fetch(link)
         .then((response) => {
-            console.log("hello");
+            console.log("ok 3");
             return response.json();           
         })
         .then((json) => {
-            console.log(":D");
+            console.log("ok 4");
             console.log(json);
             let name = json.meals[0];
             console.log(name);
@@ -79,7 +78,7 @@ class Recipe {
             console.log(storage);
     
             this.toStorage(storage, temp, title, src, recipelink); 
-            console.log(JSON.stringify(storage) + " hello?");
+            console.log(JSON.stringify(storage) + " new storage ok");
         });
         
     }
@@ -93,7 +92,7 @@ class Recipe {
           }
         else{
         let d = Date.now();
-        console.log(d + " d");
+        console.log(d + " new date");
 
         let rn = localStorage.getItem("dinner");
         let rnvs = JSON.parse(rn);
@@ -102,8 +101,12 @@ class Recipe {
         console.log(sp);
         let t = rnvs.temperature;
         console.log(t);
+        let time = d - sp;
+        console.log(time + "time ok");
+        let hour = 60*60*1000;
+        console.log(hour + "hour ok");
 
-        if(d - sp > 6000){ 
+        if(time > hour){ 
             localStorage.setItem("dinner", JSON.stringify(storage));
           }
         else{
@@ -111,12 +114,9 @@ class Recipe {
             title = rnvs.title;
             src = rnvs.photo;
             recipelink = rnvs.recipelink;
-            // let storearr = JSON.parse(localStorage.getItem("dinner"));
-            // storearr.push(storage);
-            // localStorage.setItem("dinner", JSON.stringify(storage));
           }
         }
-          console.log("🤩"); 
+          console.log(localStorage.getItem("dinner") + "🤩"); 
           this.ad(temp, title, src, recipelink);
     }
 

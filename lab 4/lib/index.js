@@ -32,11 +32,11 @@ var Recipe = /*#__PURE__*/function () {
 
       var url = "http://www.7timer.info/bin/api.pl?lon=".concat(_long2, "&lat=").concat(lat, "&product=civillight&output=json");
       console.log(url);
-      console.log("hello");
+      console.log("ok 1");
       fetch(url).then(function (response) {
         return response.json();
       }).then(function (json) {
-        console.log(":D");
+        console.log("ok 2");
         console.log(json);
         var js = json.dataseries[0];
         console.log(js);
@@ -44,8 +44,6 @@ var Recipe = /*#__PURE__*/function () {
         console.log(celsius);
         var temp = celsius.max;
         console.log(temp);
-
-        _this2.ad(temp);
 
         _this2.food(temp);
       });
@@ -70,10 +68,10 @@ var Recipe = /*#__PURE__*/function () {
       var link = "https://www.themealdb.com/api/json/v1/1/search.php?s=".concat(dish);
       console.log(link);
       fetch(link).then(function (response) {
-        console.log("hello");
+        console.log("ok 3");
         return response.json();
       }).then(function (json) {
-        console.log(":D");
+        console.log("ok 4");
         console.log(json);
         var name = json.meals[0];
         console.log(name);
@@ -94,7 +92,7 @@ var Recipe = /*#__PURE__*/function () {
 
         _this3.toStorage(storage, temp, title, src, recipelink);
 
-        console.log(JSON.stringify(storage) + " hello?");
+        console.log(JSON.stringify(storage) + " new storage ok");
       });
     }
   }, {
@@ -107,7 +105,7 @@ var Recipe = /*#__PURE__*/function () {
         localStorage.setItem("dinner", JSON.stringify(storage));
       } else {
         var d = Date.now();
-        console.log(d + " d");
+        console.log(d + " new date");
         var rn = localStorage.getItem("dinner");
         var rnvs = JSON.parse(rn);
         console.log(rnvs);
@@ -115,20 +113,22 @@ var Recipe = /*#__PURE__*/function () {
         console.log(sp);
         var t = rnvs.temperature;
         console.log(t);
+        var time = d - sp;
+        console.log(time + "time ok");
+        var hour = 60 * 60 * 1000;
+        console.log(hour + "hour ok");
 
-        if (d - sp > 6000) {
+        if (time > hour) {
           localStorage.setItem("dinner", JSON.stringify(storage));
         } else {
           temp = rnvs.temperature;
           title = rnvs.title;
           src = rnvs.photo;
-          recipelink = rnvs.recipelink; // let storearr = JSON.parse(localStorage.getItem("dinner"));
-          // storearr.push(storage);
-          // localStorage.setItem("dinner", JSON.stringify(storage));
+          recipelink = rnvs.recipelink;
         }
       }
 
-      console.log("🤩");
+      console.log(localStorage.getItem("dinner") + "🤩");
       this.ad(temp, title, src, recipelink);
     }
   }, {
