@@ -28,12 +28,16 @@ app.get("/api/v1/messages/:id", (req, res) => {
     }); 
 });
 
-app.post("/api/v1/messages", (req, res) => {
-    res.send("Hello World!")
+app.post("/api/v1/messages/:user", (req, res) => {
+    // res.send("Hello World!")
     //mongoDB JSON-object ontv, local storage
     // body { message: { “user”: “Pikachu”, “text”: “nodejs isn’t hard, or is it?” } }
     //zonder mongoDB res {“message”: “POSTING a new message for user Pikachu”}
     //naam dynamisch invullen + teruggeven
+    let user = req.params.user;
+    res.json({
+        message : `POSTING a new message for user ${user}`,
+    });
 });
 
 app.put("api/v1/messages/:id", (req, res) => {
