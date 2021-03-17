@@ -19,9 +19,13 @@ app.get("/api/v1/messages", (req, res) => {
 });
 
 app.get("/api/v1/messages/:id", (req, res) => {
-    res.send("Hello World!")
+    // res.send("Hello World!")
+    let id = req.params.id;
     //mongoDB message met id
     // zonder mongoDB res { message : `GETTING messages with ID ${id}`}
+    res.json({
+        message : `GETTING messages with ID ${id}`,
+    }); 
 });
 
 app.post("/api/v1/messages", (req, res) => {
