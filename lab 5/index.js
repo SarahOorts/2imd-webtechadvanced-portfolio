@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const routerMessages = require("./routes/index.js");
 
 app.set('view engine', "pug");
 
@@ -10,69 +11,7 @@ app.get('/', (req, res) => {
   res.render('index', { title: 'Lab 5', message: 'Hello there!'});
 });
 
-app.get("/api/v1/messages", (req, res) => {
-    //mongoDB return messages
-    // zonder mongoDB res { message : "GETTING messages"}
-    res.json({
-        message : "GETTING messages",
-    });    
-});
-
-app.get("/api/v1/messages/:id", (req, res) => {
-    // res.send("Hello World!")
-    let id = req.params.id;
-    //mongoDB message met id
-    // zonder mongoDB res { message : `GETTING messages with ID ${id}`}
-    res.json({
-        message : `GETTING messages with ID ${id}`,
-    }); 
-});
-
-app.post("/api/v1/messages/:user", (req, res) => {
-    // res.send("Hello World!")
-    //mongoDB JSON-object ontv, local storage
-    // body { message: { “user”: “Pikachu”, “text”: “nodejs isn’t hard, or is it?” } }
-    //zonder mongoDB res {“message”: “POSTING a new message for user Pikachu”}
-    //naam dynamisch invullen + teruggeven
-    let user = req.params.user;
-    res.json({
-        message : `POSTING a new message for user ${user}`,
-    });
-});
-
-app.put("/api/v1/messages/:id", (req, res) => {
-    //mongoDB JSON local storage update
-    //zonder mongoDB res  {“message”: “UPDATING a message with id id”}
-    let id = req.params.id;
-
-    res.json({
-        message : `UPDATING a message with ID ${id}`,
-    }); 
-});
-
-app.delete("/api/v1/messages/:id", (req, res) => {
-    //mongoDB remove message met id, res {“status”: “success”, “message”: “The message was removed”}
-    //zonder mongoDB res  {“message”: “DELETING a message with id id”}
-    let id = req.params.id;
-
-    res.json({
-        message : `DELETING a message with ID ${id}`,
-    }); 
-});
-
-app.get("/api/v1/messages?user=username", (req, res) => { 
-    //mongoDB return messages user
-    //req.params.username!!
-    //zonder mongoDB res  {“message”: “GETTING message for username username”}
-    let username = req.query.username;
-
-    res.json({
-        message : `GETTING message for username ${username}`,
-        status: "success",
-    }); 
-});
-
-
+app.use("/api/v1/messages", routerMessages);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
