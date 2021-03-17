@@ -53,6 +53,11 @@ app.put("/api/v1/messages/:id", (req, res) => {
 app.delete("/api/v1/messages/:id", (req, res) => {
     //mongoDB remove message met id, res {“status”: “success”, “message”: “The message was removed”}
     //zonder mongoDB res  {“message”: “DELETING a message with id id”}
+    let id = req.params.id;
+
+    res.json({
+        message : `DELETING a message with ID ${id}`,
+    }); 
 });
 
 app.get("/api/v1/messages?user=username", (req, res) => {
