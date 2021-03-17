@@ -30,7 +30,7 @@ var Recipe = /*#__PURE__*/function () {
     value: function getWeather(lat, _long2) {
       var _this2 = this;
 
-      var url = "http://www.7timer.info/bin/api.pl?lon=".concat(_long2, "&lat=").concat(lat, "&product=civillight&output=json");
+      var url = "https://api.weatherapi.com/v1/current.json?key=3a06dcc047484792aa6102031211703&q=Belgium&aqi=no".concat(lat, ",").concat(_long2);
       console.log(url);
       console.log("ok 1");
       fetch(url).then(function (response) {
@@ -38,12 +38,15 @@ var Recipe = /*#__PURE__*/function () {
       }).then(function (json) {
         console.log("ok 2");
         console.log(json);
-        var js = json.dataseries[0];
-        console.log(js);
-        var celsius = js.temp2m;
-        console.log(celsius);
-        var temp = celsius.max;
-        console.log(temp);
+        var js = json.current;
+        console.log(js + "ok");
+        var temp = js.temp_c;
+        console.log(temp); // let js = json.dataseries[0];
+        // console.log(js);
+        // let celsius = js.temp2m;
+        // console.log(celsius);
+        // let temp = celsius.max;
+        // console.log(temp);
 
         _this2.food(temp);
       });
