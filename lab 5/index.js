@@ -11,9 +11,11 @@ app.get('/', (req, res) => {
 });
 
 app.get("/api/v1/messages", (req, res) => {
-    res.send("Hello World!")
     //mongoDB return messages
     // zonder mongoDB res { message : "GETTING messages"}
+    res.json({
+        message : "GETTING messages",
+    });    
 });
 
 app.get("/api/v1/messages/:id", (req, res) => {
