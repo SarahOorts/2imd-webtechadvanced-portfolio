@@ -60,10 +60,16 @@ app.delete("/api/v1/messages/:id", (req, res) => {
     }); 
 });
 
-app.get("/api/v1/messages?user=username", (req, res) => {
+app.get("/api/v1/messages?user=username", (req, res) => { 
     //mongoDB return messages user
     //req.params.username!!
     //zonder mongoDB res  {“message”: “GETTING message for username username”}
+    let username = req.query.username;
+
+    res.json({
+        message : `GETTING message for username ${username}`,
+        status: "success",
+    }); 
 });
 
 
