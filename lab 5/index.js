@@ -40,9 +40,14 @@ app.post("/api/v1/messages/:user", (req, res) => {
     });
 });
 
-app.put("api/v1/messages/:id", (req, res) => {
+app.put("/api/v1/messages/:id", (req, res) => {
     //mongoDB JSON local storage update
     //zonder mongoDB res  {“message”: “UPDATING a message with id id”}
+    let id = req.params.id;
+
+    res.json({
+        message : `UPDATING a message with ID ${id}`,
+    }); 
 });
 
 app.delete("/api/v1/messages/:id", (req, res) => {
