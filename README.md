@@ -11,3 +11,7 @@ https://github.com/SarahOorts/2imd-webtechadvanced-portfolio/tree/main/lab%203
 
 ## Week 4 - API's
 https://github.com/SarahOorts/2imd-webtechadvanced-portfolio/tree/main/lab%204
+
+## Week 5 - Nodejs
+https://github.com/SarahOorts/2imd-webtechadvanced-portfolio/tree/main/lab%205
+https://github.com/SarahOorts/lab5heroku
