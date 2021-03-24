@@ -1,10 +1,21 @@
 function getM(req, res){
     //mongoDB return messages
    // zonder mongoDB res { message : "GETTING messages"}
+   if(req.query.user != null){
+    let username = req.query.user;
+    console.log(username);
+    res.json({
+        status : "succes",
+        message : `GETTING message for username ${username}`,
+    });
+   } 
+   else{
+    
     res.json({
         status : "succes",
         message : "GETTING messages",
     });
+   }    
 }
 
 function getMId(req, res){
@@ -24,10 +35,10 @@ function postUser(req, res){
     // body { message: { “user”: “Pikachu”, “text”: “nodejs isn’t hard, or is it?” } }
     //zonder mongoDB res {“message”: “POSTING a new message for user Pikachu”}
     //naam dynamisch invullen + teruggeven
-    let user = req.params.user;
+    // let user = req.params.user;
     res.json({
         status : "succes",
-        message : `POSTING a new message for user ${user}`,
+        message : `POSTING a new message for user Pikachu`, //${user}
     });
 }
 
@@ -53,22 +64,24 @@ function deleteId(req, res){
     }); 
   }
 
-  function getUsername(req, res){ 
-    //mongoDB return messages user
-    //req.params.username!!
-    //zonder mongoDB res  {“message”: “GETTING message for username username”}
-    let username = req.params.username;
+//   function getUsername(req, res){ 
+//     //mongoDB return messages user
+//     //req.params.username!!
+//     //zonder mongoDB res  {“message”: “GETTING message for username username”}
+//     let username = req.param("user");
+//     // let user = JSON.stringify(username); //https://www.codegrepper.com/code-examples/javascript/node+http+get+query+params
+//     // console.log(user); //https://expressjs.com/en/guide/routing.html
     
-    res.json({
-        status : "succes",
-        message : `GETTING message for username ${username}`,
-    }); 
+//     res.json({
+//         status : "succes",
+//         message : `GETTING message for username ${username}`,
+//     }); 
     
-  }
+//   }
 
 module.exports.getM = getM;
 module.exports.getMId = getMId;
 module.exports.postUser = postUser;
 module.exports.putId = putId;
 module.exports.deleteId = deleteId;
-module.exports.getUsername = getUsername;
+// module.exports.getUsername = getUsername;

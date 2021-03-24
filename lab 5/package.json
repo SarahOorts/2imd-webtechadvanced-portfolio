@@ -7,15 +7,29 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "nodemon": "./node_modules/.bin/nodemon"
+    "nodemon": "nodemon"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "^4.17.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.7",
     "pug": "^2.0.4"
-  }
+  },
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SarahOorts/2imd-webtechadvanced-portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SarahOorts/2imd-webtechadvanced-portfolio/issues"
+  },
+  "homepage": "https://github.com/SarahOorts/2imd-webtechadvanced-portfolio#readme",
+  "description": ""
 }
